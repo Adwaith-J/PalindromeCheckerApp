@@ -5,26 +5,23 @@
 
 public class PalindromeCheckerApp {
 
-    public static void main(String[] args){
-        System.out.println("Welcome to Palindrome Checker Management System");
-        System.out.println("Version: 1.0");
-        System.out.println("System Initialized Successfully");
-        String text = new String("madam");
-        boolean palindrome = true;
-        for (int i = 0; i < text.length() / 2; i++) {
-            if (text.charAt(i) != text.charAt(text.length() - 1 - i)) {
-                palindrome = false;
-                break;
-            }
+    public static void main(String[] args) {
+
+        String str = "madam", reverseStr = "";
+
+        int strLength = str.length();
+
+        for (int i = (strLength - 1); i >=0; --i) {
+            reverseStr = reverseStr + str.charAt(i);
         }
 
-        if (palindrome=true) {
-            System.out.println("true");
-        } else {
-            System.out.println(" false");
+        if (str.toLowerCase().equals(reverseStr.toLowerCase())) {
+            System.out.println(str + " is a Palindrome String.");
+        }
+        else {
+            System.out.println(str + " is not a Palindrome String.");
         }
     }
-}
 }
 
 

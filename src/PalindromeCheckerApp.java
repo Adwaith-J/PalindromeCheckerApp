@@ -2,32 +2,31 @@
  * @author developer
  * @version 1.0
  */
-
+import java.util.*;
 public class PalindromeCheckerApp {
-        public static void main(String[] args) {
-            String input = "noon";
+    public static void main(String[] args) {
+        String input = "civic";
 
-            // Step 1: Push characters onto stack
-            Stack<Character> stack = new Stack<>();
-            for (char ch : input.toCharArray()) {
-                stack.push(ch);
-            }
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> stack = new Stack<>();
+        for (char c : input.toCharArray()) {
+            queue.add(c);
+            stack.push(c);
+        }
 
-            // Step 2: Pop characters to build reversed string
-            StringBuilder reversed = new StringBuilder();
-            while (!stack.isEmpty()) {
-                reversed.append(stack.pop());
-            }
+        boolean isPalindrome = true;
+        while (!queue.isEmpty()) {
+            char fromQueue = queue.remove();
+            char fromStack = stack.pop();
 
-            // Step 3: Print results
-            System.out.println("Original: " + input);
-            System.out.println("Reversed: " + reversed);
-
-            if (input.equals(reversed.toString())) {
-                System.out.println("true");
-            } else {
-                System.out.println("false");
+            if (fromQueue != fromStack) {
+                isPalindrome = false;
+                break;
             }
         }
+
+        System.out.println( isPalindrome);
+    }
 }
+
 

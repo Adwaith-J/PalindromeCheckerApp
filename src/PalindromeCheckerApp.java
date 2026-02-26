@@ -5,7 +5,9 @@
 import java.util.*;
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String input = "madam";
+        String input = "A man a plan a canal Panama";
+
+        String cleaned = input.replaceAll("\\s+", "").toLowerCase();
 
         class Palindrome {
             boolean isPalindrome(String s, int left, int right) {
@@ -16,8 +18,9 @@ public class PalindromeCheckerApp {
         }
 
         Palindrome checker = new Palindrome();
-        boolean result = checker.isPalindrome(input, 0, input.length() - 1);
+        boolean result = checker.isPalindrome(cleaned, 0, cleaned.length() - 1);
 
         System.out.println(result);
     }
 }
+

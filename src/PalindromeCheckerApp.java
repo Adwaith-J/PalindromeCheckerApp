@@ -5,17 +5,29 @@
 
 public class PalindromeCheckerApp {
         public static void main(String[] args) {
-            String input = "radar";
-            boolean isPalindrome = checkPalindrome(input);
-            System.out.println(isPalindrome);
+            String input = "noon";
+
+            // Step 1: Push characters onto stack
+            Stack<Character> stack = new Stack<>();
+            for (char ch : input.toCharArray()) {
+                stack.push(ch);
+            }
+
+            // Step 2: Pop characters to build reversed string
+            StringBuilder reversed = new StringBuilder();
+            while (!stack.isEmpty()) {
+                reversed.append(stack.pop());
+            }
+
+            // Step 3: Print results
+            System.out.println("Original: " + input);
+            System.out.println("Reversed: " + reversed);
+
+            if (input.equals(reversed.toString())) {
+                System.out.println("true");
+            } else {
+                System.out.println("false");
+            }
         }
-
-        public static boolean checkPalindrome(String input) {
-            char[] chars = input.toCharArray();
-            int start = 0;
-            int end = chars.length - 1;
-
-
-        }
-    }
+}
 
